@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 132 32% 97%;
+  --foreground: 146 34% 12%;
+  --muted: 136 21% 91%;
+  --muted-foreground: 145 18% 35%;
+  --card: 0 0% 100%;
+  --border: 135 20% 81%;
+  --primary: 145 44% 32%;
+  --primary-foreground: 120 40% 98%;
+  --secondary: 42 88% 76%;
+  --accent: 156 40% 90%;
+  --ring: 145 44% 32%;
+  --danger: 8 73% 55%;
+  --warning: 41 92% 53%;
+}
+
+.dark {
+  --background: 153 30% 8%;
+  --foreground: 132 18% 94%;
+  --muted: 154 18% 17%;
+  --muted-foreground: 144 14% 68%;
+  --card: 153 24% 11%;
+  --border: 150 20% 24%;
+  --primary: 141 46% 53%;
+  --primary-foreground: 144 34% 11%;
+  --secondary: 41 86% 61%;
+  --accent: 156 20% 18%;
+  --ring: 141 46% 53%;
+  --danger: 7 74% 60%;
+  --warning: 40 93% 62%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at 12% 12%, rgba(109, 175, 116, 0.25), transparent 18%),
+      radial-gradient(circle at 82% 18%, rgba(255, 208, 122, 0.18), transparent 20%),
+      linear-gradient(180deg, rgba(251, 255, 251, 0.92), rgba(240, 248, 242, 0.94));
+    font-family: "Aptos", "Segoe UI Variable Display", "Segoe UI", sans-serif;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(circle at 10% 8%, rgba(74, 154, 103, 0.18), transparent 18%),
+      radial-gradient(circle at 88% 14%, rgba(191, 145, 66, 0.14), transparent 18%),
+      linear-gradient(180deg, rgba(10, 22, 16, 0.98), rgba(9, 18, 14, 1));
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: rgba(67, 128, 79, 0.24);
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply relative isolate overflow-hidden;
+  }
+
+  .app-shell::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+    background-size: 160px 160px;
+    opacity: 0.16;
+    mask-image: radial-gradient(circle at center, black 10%, transparent 80%);
+  }
+
+  .glass-panel {
+    @apply border border-white/35 bg-white/70 shadow-panel backdrop-blur-xl dark:border-white/10 dark:bg-white/5;
+  }
+
+  .section-grid {
+    @apply grid gap-6 lg:grid-cols-12;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-primary;
+  }
+
+  .gradient-text {
+    background-image: linear-gradient(120deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .skeleton-shimmer {
+    background-image: linear-gradient(
+      110deg,
+      rgba(255, 255, 255, 0.04) 8%,
+      rgba(255, 255, 255, 0.18) 18%,
+      rgba(255, 255, 255, 0.04) 33%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.4s linear infinite;
+  }
+}
