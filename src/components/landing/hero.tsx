@@ -17,7 +17,7 @@ export function HeroSection() {
         <span className="eyebrow">Precision Crop Diagnostics</span>
         <div className="space-y-5">
           <h1 className="max-w-4xl text-5xl font-semibold leading-tight sm:text-6xl lg:text-7xl">
-            Smart Tree Disease's Identification System : AI disease detection designed like a premium agricultural intelligence platform.
+            Smart Tree Disease Identification System: AI disease detection designed like a premium agricultural intelligence platform.
           </h1>
           <p className="max-w-2xl text-lg text-muted-foreground sm:text-xl">
             Capture or upload plant imagery, run explainable disease analysis, and receive a structured treatment
@@ -124,4 +124,3 @@ export function HeroSection() {
     </section>
   );
 }
-
